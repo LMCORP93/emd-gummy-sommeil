@@ -71,7 +71,7 @@ const faq = config.faq;
           <p>Le troisième critère est business. Un EMD d’affiliation doit convertir. Le Top 1 doit donc être un produit disponible, compréhensible, suffisamment aligné avec le mot-clé et exploitable avec un lien partenaire. C’est pour cela que Mush N Go est devant : le produit parle gummies, sommeil et champignons fonctionnels sans forcer l’angle. Les alternatives hors gummies restent utiles, mais seulement après les meilleures options au format attendu.</p>
         </section>
 
-        <ContentImage src="/images/content/gummy-sommeil-hero.webp" alt="Routine du soir avec gummies sommeil sans marque" caption="Le bon choix dépend du vrai problème : stress du soir, difficulté d’endormissement, réveils nocturnes ou simple envie d’un rituel relaxant." />
+        <ContentImage src="/images/content/gummy-sommeil-routine-soir.webp" alt="Routine du soir avec gummies sommeil sans marque" caption="Le bon choix dépend du vrai problème : stress du soir, difficulté d’endormissement, réveils nocturnes ou simple envie d’un rituel relaxant." />
 
         <InnerNote emoji="📌" text="Lecture rapide : Mush N Go pour le meilleur fit gummy sommeil, Bien.Health si vous voulez une alternative relaxation sans sucre, Apaise si le stress bloque l’endormissement." />
 
@@ -94,12 +94,16 @@ const faq = config.faq;
           <p>Il faut éviter de cumuler plusieurs produits contenant de la mélatonine ou des plantes sédatives. Le bon réflexe consiste à tester une formule à la fois, respecter la posologie et évaluer la qualité du sommeil sur plusieurs nuits. En cas de traitement médical, de grossesse, d’allaitement ou de trouble persistant, l’avis professionnel reste indispensable.</p>
         </section>
 
+        <ContentImage src="/images/content/gummy-sommeil-ingredients.webp" alt="Ingrédients naturels utilisés dans les formules gummies sommeil" caption="Les formules les plus cohérentes combinent souvent mélatonine, plantes relaxantes et champignons fonctionnels comme le Reishi." />
+
         <section id="usages" class="rich-text seo-guide">
           <h2>Gummy sommeil, anti-stress ou complément du soir ?</h2>
           <p>Un gummy sommeil n’a pas toujours besoin d’être très puissant. Pour beaucoup d’utilisateurs, l’intérêt vient surtout du rituel : couper les écrans, prendre une formule relaxante, ralentir le rythme et créer un signal du soir. Dans ce cas, une option comme Bien.Health ou Apaise peut suffire à installer une routine plus calme.</p>
           <p>Si l’objectif est un accompagnement plus direct de l’endormissement, Mush N Go Gummies Sommeil + devient le choix le plus logique. La formule va plus loin sur l’axe sommeil, avec Reishi, valériane, mélatonine et ashwagandha. Pauser RESTORE by Night reste intéressant pour les lecteurs qui acceptent un format gélules.</p>
           <p>La stratégie du comparatif est donc volontaire : placer les vrais gummies en premier, puis proposer des alternatives plus sommeil lorsque le lecteur préfère l’efficacité perçue au format. Cela évite de mentir sur le produit tout en gardant une page utile pour l’intention commerciale.</p>
         </section>
+
+        <ContentImage src="/images/content/gummy-sommeil-chambre.webp" alt="Chambre calme pour routine sommeil et détente du soir" caption="Un gummy sommeil fonctionne mieux lorsqu’il s’intègre à une vraie routine : lumière basse, rythme régulier et coupure progressive des écrans." />
 
         <InnerNote emoji="⚠️" text="Un complément sommeil ne corrige pas à lui seul le café tardif, les écrans au lit, l’alcool, le stress chronique ou un rythme de coucher irrégulier. Le produit aide surtout quand la base est déjà correcte." />
 
@@ -119,7 +123,9 @@ const faq = config.faq;
 
         <section id="faq" class="faq-section"><FAQSection faq={faq} title="Questions fréquentes" /></section>
       </div>
-      <aside class="sidebar-column"><div class="sidebar-sticky"><SidebarCTA logoSrc={topProduct.brandLogo} promoCode={topProduct.promoCode} promoPercent={topProduct.promoPercent} originalPrice={topProduct.originalPrice} discountPrice={topProduct.discountPrice} ctaLink={topProduct.affiliateLink} heroImage={topProduct.image} rating={topProduct.rating} reviewCount={topProduct.reviewCount} /></div></aside>
+      <aside class="sidebar-column"><div class="sidebar-sticky"><SidebarCTA logoSrc={topProduct.brandLogo}
+              productName={topProduct.name}
+              brandName={topProduct.brand} promoCode={topProduct.promoCode} promoPercent={topProduct.promoPercent} originalPrice={topProduct.originalPrice} discountPrice={topProduct.discountPrice} ctaLink={topProduct.affiliateLink} heroImage={topProduct.image} rating={topProduct.rating} reviewCount={topProduct.reviewCount} /></div></aside>
     </div></div></div>
   </main>
 </BaseLayout>
