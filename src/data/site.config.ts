@@ -39,7 +39,7 @@ const products: Product[] = [
     productType: 'Gummies sommeil avec Reishi, Valériane, Mélatonine et Ashwagandha',
     pros: ['Produit prioritaire pour l’angle gummies sommeil', 'Formule sommeil avec Reishi, valériane, mélatonine et ashwagandha', 'Marque française champignons très alignée', 'Rating partenaire élevé et bon potentiel conversion'],
     cons: ['Contient mélatonine, à éviter en cumul avec d’autres produits sommeil', 'Formule plus spécialisée à réserver au soir', 'Prix supérieur à certains gummies détente généralistes'],
-    description: 'Mush N Go passe numéro 1 avec Gummies Sommeil +. C’est le meilleur produit à pousser sur ce domaine : format gummies, promesse sommeil claire, Reishi, valériane, mélatonine et ashwagandha, plus une marque française déjà forte sur les champignons fonctionnels.'
+    description: 'Mush N Go passe numéro 1 avec Gummies Sommeil +. C’est le produit le plus aligné avec cette recherche : format gummies, promesse sommeil claire, Reishi, valériane, mélatonine et ashwagandha, plus une marque française déjà forte sur les champignons fonctionnels.'
       },
   {
     rank: 2,

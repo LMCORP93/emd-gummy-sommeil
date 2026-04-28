@@ -49,11 +49,11 @@ const chevronId = `chevron-${product.slug}`;
           src={product.image}
           alt={`${product.name} - ${product.brand}`}
           class="cc-img"
-          loading="lazy"
+          loading="eager"
         />
         <!-- Brand logo badge -->
         <div class="cc-badge-logo">
-          <img src={product.brandLogo} alt={`Logo ${product.brand}`} class="cc-badge-img" loading="lazy" />
+          <img src={product.brandLogo} alt={`Logo ${product.brand}`} class="cc-badge-img" loading="eager" />
         </div>
         <!-- TOP badge -->
         {product.rank <= 3 && (
