@@ -1,0 +1,173 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import BlogHero from '@/components/BlogHero.astro';
+import TableOfContents from '@/components/TableOfContents.astro';
+import ComparatorCard from '@/components/ComparatorCard.astro';
+import SidebarCTA from '@/components/SidebarCTA.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import ComparisonTable from '@/components/ComparisonTable.astro';
+import ContentImage from '@/components/ContentImage.astro';
+import InnerNote from '@/components/InnerNote.astro';
+import config from '@/data/site.config';
+
+const pageProduct = config.products.find((item) => item.brand === 'Apaise') ?? config.products[2];
+const sporelife = config.products.find((item) => item.brand === 'Sporelife') ?? config.products[1];
+const mush = config.products.find((item) => item.brand === 'Mush N Go') ?? config.products[0];
+const pauser = config.products.find((item) => item.brand === 'Pauser') ?? config.products[4];
+const pageTitle = 'Gummies sommeil sans mélatonine : que choisir en 2026 ?';
+const pageDescription = 'Guide gummies sommeil sans mélatonine : alternatives plantes, stress, détente, limites, avis et produits à privilégier avant de choisir.';
+const tocItems = [
+  { id: 'resume', label: 'Résumé' },
+  { id: 'pour-qui', label: 'Pour qui' },
+  { id: 'classement', label: 'Options' },
+  { id: 'ingredients', label: 'Ingrédients' },
+  { id: 'routine', label: 'Routine' },
+  { id: 'comparaison', label: 'Comparaison' },
+  { id: 'limites', label: 'Limites' },
+  { id: 'verdict', label: 'Verdict' },
+  { id: 'faq', label: 'FAQ' },
+];
+const faq = [
+  { question: 'Existe-t-il des gummies sommeil sans mélatonine efficaces ?', answer: 'Oui, mais il faut être précis : sans mélatonine, le produit agit plutôt sur la détente, le stress du soir et le rituel de coucher que sur un signal direct d’endormissement. Les actifs utiles sont les plantes relaxantes, l’ashwagandha, le safran, le magnésium, la glycine ou certains champignons fonctionnels selon la formule.' },
+  { question: 'Qui devrait éviter la mélatonine ?', answer: 'Les femmes enceintes ou allaitantes, les enfants, les personnes sous traitement, les personnes avec troubles neurologiques, hormonaux ou psychiatriques, et toute personne ayant un doute médical doivent demander un avis professionnel. Même chez l’adulte sain, il vaut mieux éviter de cumuler plusieurs produits avec mélatonine.' },
+  { question: 'Quelle est la meilleure alternative sans mélatonine ?', answer: 'Pour notre stock partenaire, Apaise est l’option la plus cohérente si le problème est le stress ou la tension du soir. Sporelife est une alternative gummies champignons plus bien-être global. Si l’objectif est l’endormissement direct, Mush N Go reste plus adapté, mais il contient de la mélatonine.' },
+  { question: 'Sans mélatonine, faut-il prendre le gummy tous les soirs ?', answer: 'Pas forcément. Beaucoup de personnes l’utilisent surtout lors des périodes de stress, de surcharge mentale ou de routine décalée. Le plus important est de respecter la posologie, d’éviter l’accumulation de produits relaxants et d’observer l’effet sur plusieurs nuits.' },
+  { question: 'Un gummy sans mélatonine peut-il remplacer un somnifère ?', answer: 'Non. Un complément alimentaire ne remplace pas un traitement médical ni une prise en charge des troubles du sommeil persistants. Si l’insomnie dure, s’aggrave ou impacte fortement la journée, il faut consulter.' },
+];
+const noMelatoninOptions = [
+  {
+    ...pageProduct,
+    rank: 1,
+    description: 'Apaise passe numéro 1 sur cette page parce que l’intention est différente du comparatif principal : ici, on cherche une option gummies sans mélatonine, surtout utile quand le stress, la tension ou le mental actif perturbent le coucher.',
+  },
+  {
+    ...sporelife,
+    rank: 2,
+    description: 'Sporelife est la meilleure alternative gummies champignons sans mélatonine dans ce classement. L’angle est plus bien-être global que sommeil pur, mais le format et l’univers fonctionnel restent cohérents pour une routine du soir douce.',
+  },
+];
+const productLink = (product: typeof pageProduct, label = product.brand) => `<a class="table-link" href="${product.affiliateLink}" target="_blank" rel="nofollow sponsored">${label}</a>`;
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <script type="application/ld+json" slot="json-ld" set:html={JSON.stringify({
+    '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Gummy sommeil', item: config.domain },
+      { '@type': 'ListItem', position: 2, name: 'Gummies sommeil sans mélatonine', item: `${config.domain}/gummies-sommeil-sans-melatonine/` },
+    ]
+  })} />
+  <script type="application/ld+json" slot="json-ld" set:html={JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((item) => ({ '@type': 'Question', name: item.question, acceptedAnswer: { '@type': 'Answer', text: item.answer } })) })} />
+
+  <BlogHero
+    title={pageTitle}
+    description="Vous cherchez une aide du soir sans mélatonine ? Voici le tri simple entre vrais gummies détente, alternatives plantes et produits sommeil plus directs."
+    author={config.author.name}
+    authorAvatar={config.author.avatar}
+    date="28 avril 2026"
+    readingTime="11 min de lecture"
+    breadcrumbs={[{ label: 'Gummy sommeil', href: '/' }, { label: 'Sans mélatonine', href: '/gummies-sommeil-sans-melatonine/' }]}
+    bannerImage="/images/content/gummy-sommeil-routine-soir.webp"
+    product={{ name: pageProduct.name, image: pageProduct.image, promoCode: pageProduct.promoCode, promoPercent: pageProduct.promoPercent, originalPrice: pageProduct.originalPrice, discountPrice: pageProduct.discountPrice, affiliateLink: pageProduct.affiliateLink }}
+    heroButton={{ text: 'Voir les options', href: '#classement' }}
+    showOfferBlock={false}
+  />
+
+  <main style="background-color:#ffffff;">
+    <div class="container-large padding-global"><div class="padding-section-medium"><div class="blog-grid">
+      <div class="content-column">
+        <section id="resume" class="rich-text">
+          <h2>Résumé : faut-il vraiment éviter la mélatonine ?</h2>
+          <p>Les <strong>gummies sommeil sans mélatonine</strong> répondent à une intention très différente des gummies sommeil classiques. La mélatonine est souvent recherchée pour envoyer un signal d’endormissement. Sans elle, le produit doit plutôt aider à calmer le terrain : tension mentale, stress de fin de journée, nervosité, difficulté à décrocher des écrans ou besoin d’un rituel plus doux avant le coucher.</p>
+          <p>C’est justement pour cela que cette page existe séparément du comparatif principal. Sur la homepage, <a href="/">Mush N Go Gummies Sommeil +</a> est notre choix numéro 1 parce que le produit colle parfaitement à l’intention “gummy sommeil” et assume la mélatonine. Ici, on raisonne autrement : si vous voulez éviter la mélatonine, il faut accepter que le meilleur choix ne sera pas forcément le produit sommeil le plus direct, mais celui qui accompagne le mieux la détente du soir.</p>
+          <p>Dans notre stock partenaire, <strong>Apaise</strong> est l’option la plus cohérente pour ce besoin, surtout lorsque le sommeil est perturbé par le stress, les pics émotionnels ou le mental qui tourne. <strong>Sporelife</strong> est l’alternative gummies champignons, plus bien-être global que sommeil pur. Ces deux options ne promettent pas la même chose qu’une formule avec mélatonine, mais elles sont plus logiques si votre priorité est d’éviter cet actif.</p>
+        </section>
+
+        <TableOfContents items={tocItems} />
+
+        <section id="pour-qui" class="rich-text seo-guide">
+          <h2>Pour qui les gummies sans mélatonine sont intéressants ?</h2>
+          <p>Le profil le plus évident est la personne qui ne veut pas toucher à la mélatonine par prudence. Cela peut venir d’un traitement en cours, d’un historique médical, d’une sensibilité aux compléments du sommeil ou simplement d’une préférence pour des formules plus douces. Dans ce cas, chercher un gummy sans mélatonine est cohérent, mais il faut éviter de tomber dans le piège inverse : croire qu’un produit sans mélatonine aura forcément un effet aussi net sur l’endormissement.</p>
+          <p>Le deuxième profil est celui du stress du soir. Beaucoup de mauvaises nuits ne commencent pas au moment de s’endormir, mais deux ou trois heures avant : journée trop dense, notifications, café tardif, conflit mental, surcharge de travail, anticipation du lendemain. Dans ce scénario, l’objectif n’est pas seulement de “faire dormir”, mais de créer une descente progressive. Un gummy anti-stress ou détente peut avoir plus de sens qu’un gummy mélatonine pris au dernier moment.</p>
+          <p>Le troisième profil est l’utilisateur qui veut une routine non médicamenteuse, simple et agréable. Le format gummy marche bien parce qu’il est facile à prendre, moins contraignant qu’une gélule et plus ritualisable. Mais il faut garder la tête froide : un gummy reste un complément alimentaire. Il peut accompagner un bon rythme, pas compenser durablement un sommeil cassé par l’alcool, les écrans au lit, les horaires instables ou le stress chronique.</p>
+          <InnerNote emoji="📌" text="Notre règle simple : sans mélatonine = priorité détente, stress et routine. Avec mélatonine = priorité endormissement et rythme veille-sommeil." />
+        </section>
+
+        <section id="classement" class="comparatif-cards">
+          {noMelatoninOptions.map((product) => (
+            <div id={`product-${product.slug}`}><ComparatorCard product={product} /></div>
+          ))}
+        </section>
+
+        <section class="rich-text seo-guide">
+          <h2>Pourquoi Apaise passe devant sur cet angle</h2>
+          <p>Apaise n’est pas vendu comme un “gummy sommeil” pur. C’est justement sa limite, mais aussi son intérêt pour cette page. Le produit vise plutôt les pics de stress, la tension ponctuelle et le relâchement émotionnel. Or, pour beaucoup de lecteurs qui cherchent une option sans mélatonine, le problème réel est exactement là : ils ne veulent pas forcer l’endormissement, ils veulent arrêter de ruminer.</p>
+          <p>Le format gummy est un avantage évident : il colle à l’intention de recherche, il est simple à intégrer dans la soirée et il peut devenir un petit signal de pause. La promesse est aussi plus honnête qu’une formule “sommeil miracle” sans actif réellement orienté endormissement. Si vous cherchez quelque chose de doux pour accompagner une routine de coucher, Apaise est donc l’option la plus logique dans notre classement sans mélatonine.</p>
+          <p>Sporelife garde une place intéressante, mais plus indirecte. La marque coche l’univers gummies et champignons fonctionnels, ce qui peut séduire ceux qui veulent une routine bien-être globale. En revanche, l’angle sommeil est moins net. Pour un lecteur qui veut éviter la mélatonine et tester un produit plus lifestyle, c’est une alternative crédible ; pour quelqu’un qui cherche une aide claire à l’endormissement, ce sera probablement trop général.</p>
+        </section>
+
+        <ContentImage src="/images/content/gummy-sommeil-ingredients.webp" alt="Plantes et ingrédients naturels pour gummies sommeil sans mélatonine" caption="Sans mélatonine, la cohérence vient surtout des plantes relaxantes, de l’anti-stress et du rituel de prise." />
+
+        <section id="ingredients" class="rich-text seo-guide">
+          <h2>Quels ingrédients regarder sans mélatonine ?</h2>
+          <h3>Plantes relaxantes</h3>
+          <p>Les plantes comme la passiflore, la valériane, la mélisse ou l’aubépine sont souvent utilisées dans les compléments du soir. Elles ne fonctionnent pas comme un interrupteur. Leur intérêt est plutôt d’accompagner le relâchement, surtout quand la mauvaise nuit vient d’un état nerveux élevé. Si un gummy sans mélatonine ne contient aucun actif de ce type, il risque de n’être qu’un bonbon marketing.</p>
+          <h3>Adaptogènes et champignons fonctionnels</h3>
+          <p>L’ashwagandha, le Reishi ou certains extraits de champignons peuvent avoir une place dans une routine relaxation. Là encore, il faut éviter les promesses trop fortes. L’intérêt est surtout de soutenir une routine de fond, pas de remplacer un produit sommeil direct. C’est pour cela que les marques comme Sporelife peuvent être utiles en alternative, mais ne doivent pas être présentées comme équivalentes à une formule mélatonine.</p>
+          <h3>Magnésium, glycine, safran et actifs de détente</h3>
+          <p>Le magnésium est souvent pertinent si la personne cherche une détente musculaire et nerveuse. La glycine peut être intéressante dans certaines routines du soir. Le safran est plutôt lié à l’humeur et à l’équilibre émotionnel. Ces actifs ont leur logique, mais tout dépend du dosage, de la forme et de la cohérence globale. Le piège des gummies est fréquent : mettre beaucoup d’ingrédients “tendance” en doses faibles pour rendre l’étiquette séduisante.</p>
+        </section>
+
+        <ComparisonTable title="Sans mélatonine ou avec mélatonine : quelle logique ?" headers={[{label:'Situation'}, {label:'Choix le plus logique'}]} rows={[
+          { cells: ['<span class="table-fit">Stress du soir, tension, mental actif</span><span class="table-muted"> Besoin de relâchement avant le coucher</span>', productLink(pageProduct, '✅ Apaise')], highlight: true },
+          { cells: ['<span class="table-fit">Routine gummies bien-être globale</span><span class="table-muted"> Envie de champignons fonctionnels sans promesse sommeil trop forte</span>', productLink(sporelife, '✅ Sporelife') ] },
+          { cells: ['<span class="table-fit">Endormissement direct et rythme décalé</span><span class="table-muted"> Vous acceptez la mélatonine</span>', productLink(mush, '✅ Mush N Go') ] },
+          { cells: ['<span class="table-fit">Sommeil sérieux hors format gummy</span><span class="table-muted"> Vous privilégiez la formule au format</span>', productLink(pauser, '✅ Pauser') ] },
+        ]} />
+
+        <section id="routine" class="rich-text seo-guide">
+          <h2>La routine compte plus que le gummy</h2>
+          <p>Si vous choisissez un gummy sommeil sans mélatonine, la routine autour du produit devient décisive. Pris au milieu d’une soirée lumineuse, avec téléphone au lit, travail tardif et café après 17h, le complément aura peu de chances de changer grand-chose. Pris dans une routine cohérente, il peut en revanche devenir un signal utile : on ralentit, on coupe les stimulations, on prépare le corps à dormir.</p>
+          <p>Le bon timing se situe souvent 30 à 60 minutes avant le coucher, selon la formule et la tolérance. Ce délai laisse le temps d’installer la transition : baisser la lumière, éviter les contenus excitants, préparer le lendemain, faire une douche tiède ou quelques minutes de respiration. Le gummy n’est alors plus une solution isolée, mais une pièce d’un système plus intelligent.</p>
+          <p>Cette approche est aussi meilleure pour la conversion et la crédibilité éditoriale. Promettre qu’un gummy sans mélatonine va régler l’insomnie serait faible. Expliquer qu’il peut accompagner une routine anti-stress est plus honnête, plus utile et plus aligné avec les produits réellement disponibles. C’est exactement l’angle à garder pour ce type de page SEO.</p>
+        </section>
+
+        <ContentImage src="/images/content/gummy-sommeil-chambre.webp" alt="Routine de coucher calme sans mélatonine" caption="Le meilleur effet vient souvent du duo : produit doux + environnement de sommeil cohérent." />
+
+        <section id="comparaison" class="rich-text seo-guide">
+          <h2>Gummy sans mélatonine vs gummy avec mélatonine</h2>
+          <p>La mélatonine n’est pas “mauvaise” par principe. Elle est simplement plus spécifique. Elle intervient dans la régulation du rythme veille-sommeil et peut être utile dans certains contextes d’endormissement ou de décalage. Mais comme elle touche directement au signal du sommeil, certains utilisateurs préfèrent l’éviter, ne pas l’utiliser tous les soirs ou demander un avis médical avant d’en prendre.</p>
+          <p>Un gummy sans mélatonine est généralement plus doux dans son positionnement. Il cherche à favoriser la détente plutôt qu’à modifier le signal d’endormissement. C’est une bonne chose pour les profils prudents, mais une limite pour ceux qui veulent un effet très perceptible. Le choix dépend donc moins du mot “sommeil” que de la cause réelle du problème.</p>
+          <p>Notre recommandation est simple : si vous avez surtout besoin d’un rituel relaxant, regardez d’abord Apaise ou Sporelife. Si vous cherchez l’option la plus directe sur le sommeil et que la mélatonine ne vous pose pas de problème, revenez au comparatif principal avec Mush N Go. Si vous voulez une formule sommeil plus classique et sérieuse, mais sans exigence de format gummy, Pauser reste une option à considérer.</p>
+        </section>
+
+        <section id="limites" class="rich-text seo-guide">
+          <h2>Limites et précautions</h2>
+          <p>Le premier point à surveiller est l’empilement. Beaucoup de personnes prennent déjà du magnésium, une tisane, une formule stress, parfois un complément sommeil. Ajouter un gummy sans regarder les ingrédients peut créer des doublons inutiles. Même sans mélatonine, certaines plantes relaxantes peuvent ne pas convenir à tout le monde, surtout en cas de traitement, de grossesse, d’allaitement ou de condition médicale.</p>
+          <p>Le deuxième point est le sucre. Le format gummy est agréable, mais il peut encourager une prise automatique, presque comme un bonbon. Pour un usage du soir, mieux vaut choisir une formule raisonnable, respecter la dose et éviter d’en faire une habitude déconnectée du besoin réel. Un bon produit doit simplifier la routine, pas créer une dépendance comportementale au geste.</p>
+          <p>Le troisième point est le diagnostic. Si les troubles du sommeil sont fréquents, sévères, associés à de l’anxiété importante, des réveils nocturnes répétés, des ronflements forts ou une fatigue diurne persistante, il ne faut pas masquer le problème avec des compléments. Dans ce cas, la bonne décision n’est pas de chercher le meilleur gummy, mais de comprendre la cause.</p>
+          <InnerNote emoji="⚠️" text="Sans mélatonine ne veut pas dire sans précaution. Le bon réflexe reste : une formule à la fois, dose respectée, pas de cumul inutile, avis médical en cas de doute." />
+        </section>
+
+        <section id="verdict" class="rich-text seo-guide">
+          <h2>Verdict : notre choix sans mélatonine</h2>
+          <p><strong>Pour un gummy sommeil sans mélatonine, notre choix prioritaire est Apaise</strong>, surtout si votre problème est lié au stress, à la tension ou à la difficulté de redescendre le soir. Ce n’est pas le produit sommeil le plus direct du site, mais c’est le plus cohérent avec l’intention “sans mélatonine” dans notre stock partenaire.</p>
+          <p><strong>Sporelife</strong> arrive ensuite comme alternative gummies champignons, plus lifestyle et bien-être global. C’est intéressant si vous aimez l’univers champignons fonctionnels et que vous ne cherchez pas une promesse d’endormissement trop frontale. Pour l’intention pure “meilleur gummy sommeil”, <strong>Mush N Go</strong> reste devant, mais il appartient à la catégorie avec mélatonine.</p>
+          <p>Le choix final dépend donc de votre priorité. Si vous voulez éviter la mélatonine, partez sur une approche détente et routine. Si vous voulez le produit le plus orienté sommeil, acceptez que la mélatonine soit souvent présente. Et si vos troubles persistent, ne laissez pas un comparatif d’affiliation remplacer un avis professionnel.</p>
+        </section>
+
+        <section id="faq" class="faq-section"><FAQSection faq={faq} title="Questions fréquentes" /></section>
+      </div>
+      <aside class="sidebar-column"><div class="sidebar-sticky"><SidebarCTA logoSrc={pageProduct.brandLogo}
+              productName={pageProduct.name}
+              brandName={pageProduct.brand} promoCode={pageProduct.promoCode} promoPercent={pageProduct.promoPercent} originalPrice={pageProduct.originalPrice} discountPrice={pageProduct.discountPrice} ctaLink={pageProduct.affiliateLink} heroImage={pageProduct.image} rating={pageProduct.rating} reviewCount={pageProduct.reviewCount} /></div></aside>
+    </div></div></div>
+  </main>
+</BaseLayout>
+
+<style>
+  .seo-guide { margin-top: 3rem; padding-top: 2rem; border-top: 2px solid #f0ebe3; }
+  .seo-guide .rich-text h3, .seo-guide h3 { margin-top: 2rem; margin-bottom: .75rem; font-size: 1.25rem; font-weight: 600; color: #242424; }
+  .seo-guide p { margin-bottom: 1rem; line-height: 1.8; color: #444; }
+  .faq-section { margin-top: 3rem; padding-top: 2rem; border-top: 2px solid #f0ebe3; }
+</style>
