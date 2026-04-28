@@ -1,0 +1,132 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import BlogHero from '@/components/BlogHero.astro';
+import TableOfContents from '@/components/TableOfContents.astro';
+import ComparatorCard from '@/components/ComparatorCard.astro';
+import SidebarCTA from '@/components/SidebarCTA.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import ComparisonTable from '@/components/ComparisonTable.astro';
+import ContentImage from '@/components/ContentImage.astro';
+import InnerNote from '@/components/InnerNote.astro';
+import config from '@/data/site.config';
+
+const topProduct = config.products[0];
+const pageTitle = 'Meilleur gummy sommeil 2026 : comparatif Top 6';
+const pageDescription = 'Comparatif des meilleurs gummies sommeil et compléments relaxation : Bien.Health, Apaise, Sporelife, Spacegoods, Pauser et Mush N Go. Avis, prix et codes promo.';
+const productLink = (brand: string, label = brand) => {
+  const product = config.products.find((item) => item.brand === brand);
+  const href = product?.affiliateLink ?? '#';
+  return `<a class="table-link" href="${href}" target="_blank" rel="nofollow sponsored">${label}</a>`;
+};
+const faq = config.faq;
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <script type="application/ld+json" slot="json-ld" set:html={JSON.stringify({
+    '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+    itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Gummy sommeil', item: config.domain }]
+  })} />
+  <script type="application/ld+json" slot="json-ld" set:html={JSON.stringify({
+    '@context': 'https://schema.org', '@type': 'ItemList',
+    itemListElement: config.products.map((p, i) => ({ '@type': 'ListItem', position: i + 1, item: { '@type': 'Product', name: `${p.name} - ${p.brand}`, image: p.image, brand: { '@type': 'Brand', name: p.brand }, offers: { '@type': 'Offer', priceCurrency: 'EUR', price: p.discountPrice.replace(/[^\d.,]/g, '').replace(',', '.'), availability: 'https://schema.org/InStock', url: p.affiliateLink }, aggregateRating: { '@type': 'AggregateRating', ratingValue: p.rating, bestRating: 10, reviewCount: p.reviewCount } } }))
+  })} />
+  <script type="application/ld+json" slot="json-ld" set:html={JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((item) => ({ '@type': 'Question', name: item.question, acceptedAnswer: { '@type': 'Answer', text: item.answer } })) })} />
+
+  <BlogHero
+    title={pageTitle}
+    description="J’ai comparé les meilleurs gummies sommeil disponibles dans notre stock partenaire, en distinguant clairement les vrais formats gummies des alternatives sommeil plus sérieuses mais non gummies."
+    author={config.author.name}
+    authorAvatar={config.author.avatar}
+    date="28 avril 2026"
+    readingTime="12 min de lecture"
+    breadcrumbs={[{ label: 'Meilleur gummy sommeil', href: '/' }]}
+    bannerImage="/images/content/gummy-sommeil-hero.svg"
+    product={{ name: topProduct.name, image: topProduct.image, promoCode: topProduct.promoCode, promoPercent: topProduct.promoPercent, originalPrice: topProduct.originalPrice, discountPrice: topProduct.discountPrice, affiliateLink: topProduct.affiliateLink }}
+    heroButton={{ text: 'Voir le Top 6', href: `#product-${topProduct.slug}` }}
+    showOfferBlock={false}
+  />
+
+  <main style="background-color:#ffffff;">
+    <div class="container-large padding-global"><div class="padding-section-medium"><div class="blog-grid">
+      <div class="content-column">
+        <section id="introduction" class="rich-text">
+          <h2>En bref : notre classement gummy sommeil</h2>
+          <p>Le marché des gummies sommeil est plus compliqué qu’il n’en a l’air. Beaucoup de marques parlent de détente, de stress ou de champignons adaptogènes, mais très peu proposent un vrai produit à la fois en format gummy et directement orienté sommeil. Pour ce comparatif, j’ai donc séparé deux familles : les produits qui collent vraiment à l’intention <strong>gummy sommeil</strong>, puis les alternatives sommeil plus sérieuses lorsque le format n’est pas exactement un gummy.</p>
+          <p><strong>Bien.Health Calm</strong> prend la première place, car c’est le meilleur compromis entre format, intention et conversion. La formule repose sur des gummies relaxation avec Reishi, Ashwagandha et Safran, ce qui répond bien aux lecteurs qui cherchent une aide douce pour relâcher la pression le soir. <strong>Apaise</strong> arrive deuxième grâce à ses gummies anti-stress, très utiles lorsque la difficulté d’endormissement vient d’un mental trop actif.</p>
+          <p><strong>Sporelife</strong> complète le podium pour son vrai territoire gummies aux champignons, même si l’angle sommeil est moins direct. Ensuite, <strong>Spacegoods</strong> apporte une marque forte avec Moon Chews et Astro Dust, <strong>Pauser</strong> renforce le comparatif avec RESTORE by Night pour le sommeil pur, et <strong>Mush N Go</strong> ferme le Top 6 avec Sommeil +, une formule pertinente autour du Reishi, de la valériane, de la mélatonine et de l’ashwagandha.</p>
+        </section>
+
+        <TableOfContents items={config.tocItems} />
+
+        <section id="ranking" class="comparatif-cards">
+          {config.products.map((product) => (
+            <div id={`product-${product.slug}`}><ComparatorCard product={product} /></div>
+          ))}
+        </section>
+
+        <section id="methodologie" class="rich-text seo-guide">
+          <h2>Notre méthode de classement</h2>
+          <p>J’ai d’abord filtré les produits selon l’intention exacte du domaine : quelqu’un qui tape gummy sommeil veut probablement un format facile, agréable, à prendre le soir, avec une promesse de détente ou d’endormissement. Le format compte donc beaucoup. Un excellent complément sommeil en gélules ne peut pas être placé devant un vrai gummy si le gummy est cohérent.</p>
+          <p>Le deuxième critère est la logique de formule. Les ingrédients les plus pertinents pour ce type de recherche sont la mélatonine, la passiflore, la valériane, le Reishi, l’ashwagandha, le safran, la glycine, le tryptophane ou les plantes relaxantes. Le but n’est pas de promettre un effet médical, mais de vérifier que le produit répond à un besoin réel : relâcher la tension, faciliter l’endormissement ou améliorer une routine du soir.</p>
+          <p>Le troisième critère est business. Un EMD d’affiliation doit convertir. Le Top 1 doit donc être un produit disponible, compréhensible, suffisamment aligné avec le mot-clé et exploitable avec un lien partenaire. C’est pour cela que Bien.Health est devant : le produit parle gummies, relaxation et sommeil sans forcer l’angle. Les produits non gummies restent utiles, mais seulement après les meilleures options au format attendu.</p>
+        </section>
+
+        <ContentImage src="/images/content/gummy-sommeil-hero.svg" alt="Comparatif des gummies sommeil" caption="Le bon choix dépend du vrai problème : stress du soir, difficulté d’endormissement, réveils nocturnes ou simple envie d’un rituel relaxant." />
+
+        <InnerNote emoji="📌" text="Lecture rapide : Bien.Health pour le meilleur fit gummy sommeil, Apaise si le stress bloque l’endormissement, Pauser ou Mush N Go si vous acceptez un format non gummy mais plus orienté sommeil pur." />
+
+        <ComparisonTable title="Quel produit choisir selon votre besoin ?" headers={[{label:'Besoin'}, {label:'Produit le plus adapté'}]} rows={[
+          { cells: ['<span class="table-fit">Gummy relaxation le plus proche du mot-clé</span><span class="table-muted"> Format gummies + détente + sommeil</span>', productLink('Bien.Health', '✅ Bien.Health Calm')], highlight: true },
+          { cells: ['<span class="table-fit">Stress ponctuel et mental qui tourne</span><span class="table-muted"> Gummies anti-crise et pause relaxante</span>', productLink('Apaise', '✅ Apaise Pic') ] },
+          { cells: ['<span class="table-fit">Routine gummies champignons</span><span class="table-muted"> Format gourmand bien-être quotidien</span>', productLink('Sporelife', '✅ Sporelife') ] },
+          { cells: ['<span class="table-fit">Marque forte champignons + sommeil</span><span class="table-muted"> Moon Chews / Astro Dust selon besoin</span>', productLink('Spacegoods', '✅ Spacegoods') ] },
+          { cells: ['<span class="table-fit">Sommeil pur avec mélatonine</span><span class="table-muted"> Gélules sérieuses, non gummies</span>', productLink('Pauser', '✅ Pauser RESTORE') ] },
+          { cells: ['<span class="table-fit">Sommeil + champignons adaptogènes</span><span class="table-muted"> Reishi, valériane, mélatonine, ashwagandha</span>', productLink('Mush N Go', '✅ Mush N Go Sommeil +') ] },
+        ]} />
+
+        <section id="choisir" class="rich-text seo-guide">
+          <h2>Comment choisir des gummies sommeil ?</h2>
+          <h3>Commencer par le problème réel</h3>
+          <p>Le meilleur gummy sommeil dépend de la cause de la mauvaise nuit. Si le problème est surtout le stress, une formule avec ashwagandha, safran, Reishi ou plantes relaxantes peut être pertinente. Si le problème est l’endormissement, la mélatonine devient plus intéressante. Si le problème est le réveil nocturne ou une hygiène de sommeil instable, le complément ne suffira pas toujours.</p>
+          <h3>Vérifier le format et le sucre</h3>
+          <p>Un gummy est agréable parce qu’il simplifie la prise, mais il faut vérifier la quantité de sucre, les édulcorants, les arômes et la tolérance digestive. Les meilleurs produits restent simples à prendre sans transformer la routine du soir en bonbon automatique. Bien.Health marque des points ici grâce à son angle vegan, sans sucre et sans gluten.</p>
+          <h3>Ne pas empiler les actifs</h3>
+          <p>Il faut éviter de cumuler plusieurs produits contenant de la mélatonine ou des plantes sédatives. Le bon réflexe consiste à tester une formule à la fois, respecter la posologie et évaluer la qualité du sommeil sur plusieurs nuits. En cas de traitement médical, de grossesse, d’allaitement ou de trouble persistant, l’avis professionnel reste indispensable.</p>
+        </section>
+
+        <section id="usages" class="rich-text seo-guide">
+          <h2>Gummy sommeil, anti-stress ou complément du soir ?</h2>
+          <p>Un gummy sommeil n’a pas toujours besoin d’être très puissant. Pour beaucoup d’utilisateurs, l’intérêt vient surtout du rituel : couper les écrans, prendre une formule relaxante, ralentir le rythme et créer un signal du soir. Dans ce cas, une option comme Bien.Health ou Apaise peut suffire à installer une routine plus calme.</p>
+          <p>Si l’objectif est un accompagnement plus direct de l’endormissement, les produits non gummies deviennent intéressants. Pauser RESTORE by Night utilise une logique plus spécialisée autour de la mélatonine, de la passiflore et de la verveine citronnelle brevetée. Mush N Go Sommeil + va aussi plus loin sur l’axe sommeil, avec Reishi, valériane, mélatonine et ashwagandha.</p>
+          <p>La stratégie du comparatif est donc volontaire : placer les vrais gummies en premier, puis proposer des alternatives plus sommeil lorsque le lecteur préfère l’efficacité perçue au format. Cela évite de mentir sur le produit tout en gardant une page utile pour l’intention commerciale.</p>
+        </section>
+
+        <InnerNote emoji="⚠️" text="Un complément sommeil ne corrige pas à lui seul le café tardif, les écrans au lit, l’alcool, le stress chronique ou un rythme de coucher irrégulier. Le produit aide surtout quand la base est déjà correcte." />
+
+        <section id="prix" class="rich-text seo-guide">
+          <h2>Prix, codes promo et rapport qualité-prix</h2>
+          <p>Les gummies sommeil sont souvent plus chers qu’une formule classique en gélules, parce que le format est plus agréable et plus complexe à produire. Le prix doit donc être jugé selon l’usage : achat plaisir pour une routine du soir, soutien ponctuel en période de stress ou solution plus cadrée pour l’endormissement.</p>
+          <p>Bien.Health et Apaise sont les deux choix les plus cohérents si le format gummy est prioritaire. Sporelife est intéressant pour le prix et l’univers champignons. Spacegoods est plus premium, mais la marque est forte. Pauser et Mush N Go ne répondent pas parfaitement au format gummy, mais ils peuvent offrir un meilleur fit sommeil pour les lecteurs qui veulent une formule plus spécialisée.</p>
+          <p>Les codes promo améliorent le premier achat, mais ils ne doivent pas guider seuls la décision. Il vaut mieux choisir le produit selon le besoin, puis utiliser le code disponible : lionsmane10 chez Bien.Health, LMC chez Apaise et Sporelife, LIONSMANE45665 chez Spacegoods, LMC10 chez Pauser et LMC15 chez Mush N Go.</p>
+        </section>
+
+        <section id="verdict" class="rich-text seo-guide">
+          <h2>Verdict final</h2>
+          <p><strong>Bien.Health Calm est notre recommandation numéro 1</strong> pour ce comparatif gummy sommeil. C’est le produit qui respecte le mieux le format attendu, avec une promesse relaxation crédible et une formule cohérente pour les personnes dont le sommeil est perturbé par le stress ou la difficulté à redescendre le soir.</p>
+          <p><strong>Apaise</strong> est l’alternative anti-stress en gummies, très utile pour les tensions ponctuelles. <strong>Sporelife</strong> est une option gummies champignons plus généraliste. <strong>Spacegoods</strong> apporte une marque forte et une gamme sommeil intéressante, mais moins exacte sur le lien produit. <strong>Pauser</strong> et <strong>Mush N Go</strong> sont les meilleurs renforts sommeil si le lecteur accepte de sortir du format gummy.</p>
+          <p>Le choix intelligent est donc simple : Bien.Health si vous voulez le meilleur fit gummy sommeil, Apaise si le stress est le problème principal, Pauser ou Mush N Go si vous privilégiez une formule sommeil plus directe au détriment du format.</p>
+        </section>
+
+        <section id="faq" class="faq-section"><FAQSection faq={faq} title="Questions fréquentes" /></section>
+      </div>
+      <aside class="sidebar-column"><div class="sidebar-sticky"><SidebarCTA logoSrc={topProduct.brandLogo} promoCode={topProduct.promoCode} promoPercent={topProduct.promoPercent} originalPrice={topProduct.originalPrice} discountPrice={topProduct.discountPrice} ctaLink={topProduct.affiliateLink} heroImage={topProduct.image} rating={topProduct.rating} reviewCount={topProduct.reviewCount} /></div></aside>
+    </div></div></div>
+  </main>
+</BaseLayout>
+
+<style>
+  .seo-guide { margin-top: 3rem; padding-top: 2rem; border-top: 2px solid #f0ebe3; }
+  .seo-guide .rich-text h3, .seo-guide h3 { margin-top: 2rem; margin-bottom: .75rem; font-size: 1.25rem; font-weight: 600; color: #242424; }
+  .seo-guide p { margin-bottom: 1rem; line-height: 1.8; color: #444; }
+  .faq-section { margin-top: 3rem; padding-top: 2rem; border-top: 2px solid #f0ebe3; }
+</style>
