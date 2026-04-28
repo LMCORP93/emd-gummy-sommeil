@@ -128,8 +128,8 @@ const products: Product[] = [
 ];
 
 const config: SiteConfig = {
-  domain: 'https://emd-gummy-sommeil.pages.dev',
-  isIndexable: false,
+  domain: 'https://gummy-sommeil.fr',
+  isIndexable: true,
   siteName: 'Gummy Sommeil',
   brand: 'Mush N Go',
   product: 'Gummies Sommeil +',
@@ -177,6 +177,7 @@ const config: SiteConfig = {
     { type: 'comparatif', label: 'Comparatif', slug: '/' },
     { type: 'blog', label: 'Sans mélatonine', slug: '/gummies-sommeil-sans-melatonine/' },
     { type: 'blog', label: 'Mélatonine', slug: '/gummies-melatonine/' },
+    { type: 'blog', label: 'Avis', slug: '/gummy-sommeil-avis/' },
   ],
 };
 
