@@ -147,6 +147,7 @@ const config: SiteConfig = {
     description: 'Comparatif des meilleurs gummies sommeil et compléments relaxation : Mush N Go, Sporelife, Apaise, Spacegoods et Pauser. Avis, prix et codes promo.',
     ogImage: '/og-image.jpg',
   },
+  analyticsMeasurementId: 'G-X5P3M1ZCTK',
   breadcrumbs: [{ label: 'Accueil', href: '/' }],
   quickSummary: {
     assets: ['Mush N Go Gummies Sommeil + est notre choix principal pour l’intention gummy sommeil.', 'Sporelife est la meilleure alternative gummies champignons.', 'Apaise, Spacegoods et Pauser complètent le comparatif selon le profil recherché.'],
