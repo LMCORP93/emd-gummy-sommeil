@@ -176,6 +176,7 @@ const config: SiteConfig = {
   pages: [
     { type: 'comparatif', label: 'Comparatif', slug: '/' },
     { type: 'blog', label: 'Sans mélatonine', slug: '/gummies-sommeil-sans-melatonine/' },
+    { type: 'blog', label: 'Mélatonine', slug: '/gummies-melatonine/' },
   ],
 };
 

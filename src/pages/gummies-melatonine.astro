@@ -1,0 +1,170 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import BlogHero from '@/components/BlogHero.astro';
+import TableOfContents from '@/components/TableOfContents.astro';
+import ComparatorCard from '@/components/ComparatorCard.astro';
+import SidebarCTA from '@/components/SidebarCTA.astro';
+import FAQSection from '@/components/FAQSection.astro';
+import ComparisonTable from '@/components/ComparisonTable.astro';
+import ContentImage from '@/components/ContentImage.astro';
+import InnerNote from '@/components/InnerNote.astro';
+import config from '@/data/site.config';
+
+const mush = config.products.find((item) => item.brand === 'Mush N Go') ?? config.products[0];
+const pauser = config.products.find((item) => item.brand === 'Pauser') ?? config.products[4];
+const spacegoods = config.products.find((item) => item.brand === 'Spacegoods') ?? config.products[3];
+const apaise = config.products.find((item) => item.brand === 'Apaise') ?? config.products[2];
+const pageTitle = 'Gummies mélatonine : avis, dosage et meilleur choix 2026';
+const pageDescription = 'Guide gummies mélatonine : quand les prendre, dosage, précautions, alternatives et meilleur choix avec Mush N Go Gummies Sommeil +.';
+const tocItems = [
+  { id: 'resume', label: 'Résumé' },
+  { id: 'choix', label: 'Meilleur choix' },
+  { id: 'melatonine', label: 'Mélatonine' },
+  { id: 'dosage', label: 'Dosage' },
+  { id: 'comparaison', label: 'Comparer' },
+  { id: 'precautions', label: 'Précautions' },
+  { id: 'alternatives', label: 'Alternatives' },
+  { id: 'verdict', label: 'Verdict' },
+  { id: 'faq', label: 'FAQ' },
+];
+const faq = [
+  { question: 'Quel est le meilleur gummy mélatonine ?', answer: 'Notre choix est Mush N Go Gummies Sommeil +, car c’est le produit le plus aligné avec l’intention : format gummies, promesse sommeil claire, mélatonine, Reishi, valériane et ashwagandha.' },
+  { question: 'Quand prendre des gummies à la mélatonine ?', answer: 'La prise se fait généralement le soir, souvent 30 à 60 minutes avant le coucher selon la formule. Il faut suivre la posologie de la marque et éviter de prendre plusieurs produits contenant de la mélatonine le même soir.' },
+  { question: 'Les gummies mélatonine sont-ils dangereux ?', answer: 'Ils ne sont pas à banaliser. La mélatonine peut ne pas convenir aux femmes enceintes ou allaitantes, aux enfants, aux personnes sous traitement ou avec certains troubles médicaux. En cas de doute, il faut demander un avis professionnel.' },
+  { question: 'Mélatonine ou plantes relaxantes : que choisir ?', answer: 'La mélatonine est plus logique si le problème principal est l’endormissement ou le rythme veille-sommeil. Les plantes relaxantes sont plus pertinentes si le problème vient du stress, de la tension ou d’un mental trop actif.' },
+  { question: 'Peut-on prendre un gummy mélatonine tous les soirs ?', answer: 'Ce n’est pas l’objectif idéal. Un usage ponctuel ou cadré est plus raisonnable. Si le besoin devient quotidien ou si l’insomnie persiste, il faut chercher la cause plutôt que seulement augmenter ou répéter les compléments.' },
+];
+const melatoninOptions = [
+  {
+    ...mush,
+    rank: 1,
+    description: 'Mush N Go Gummies Sommeil + est le meilleur choix de cette page : format gummies, mélatonine, Reishi, valériane et ashwagandha. C’est le produit le plus direct pour une recherche gummies mélatonine orientée sommeil.',
+  },
+  {
+    ...pauser,
+    rank: 2,
+    description: 'Pauser RESTORE by Night est une alternative sérieuse avec mélatonine, mais pas au format gummy. Il reste utile si vous privilégiez une formule sommeil cadrée plutôt qu’un produit à mâcher.',
+  },
+];
+const productLink = (product: typeof mush, label = product.brand) => `<a class="table-link" href="${product.affiliateLink}" target="_blank" rel="nofollow sponsored">${label}</a>`;
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <script type="application/ld+json" slot="json-ld" set:html={JSON.stringify({
+    '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Gummy sommeil', item: config.domain },
+      { '@type': 'ListItem', position: 2, name: 'Gummies mélatonine', item: `${config.domain}/gummies-melatonine/` },
+    ]
+  })} />
+  <script type="application/ld+json" slot="json-ld" set:html={JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((item) => ({ '@type': 'Question', name: item.question, acceptedAnswer: { '@type': 'Answer', text: item.answer } })) })} />
+
+  <BlogHero
+    title={pageTitle}
+    description="La mélatonine peut être utile, mais elle doit être choisie proprement : bon timing, formule cohérente, pas de cumul inutile et vraie routine de coucher."
+    author={config.author.name}
+    authorAvatar={config.author.avatar}
+    date="28 avril 2026"
+    readingTime="11 min de lecture"
+    breadcrumbs={[{ label: 'Gummy sommeil', href: '/' }, { label: 'Gummies mélatonine', href: '/gummies-melatonine/' }]}
+    bannerImage="/images/content/gummy-sommeil-ingredients.webp"
+    product={{ name: mush.name, image: mush.image, promoCode: mush.promoCode, promoPercent: mush.promoPercent, originalPrice: mush.originalPrice, discountPrice: mush.discountPrice, affiliateLink: mush.affiliateLink }}
+    heroButton={{ text: 'Voir Mush N Go', href: `#product-${mush.slug}` }}
+    showOfferBlock={false}
+  />
+
+  <main style="background-color:#ffffff;">
+    <div class="container-large padding-global"><div class="padding-section-medium"><div class="blog-grid">
+      <div class="content-column">
+        <section id="resume" class="rich-text">
+          <h2>Résumé : les gummies mélatonine ne se choisissent pas comme un bonbon</h2>
+          <p>Les <strong>gummies mélatonine</strong> attirent parce qu’ils promettent une solution simple : un format agréable, une prise facile et un actif connu pour l’endormissement. C’est précisément pour cela qu’il faut les traiter avec un peu plus de sérieux qu’un gummy détente classique. La mélatonine n’est pas juste un ingrédient tendance ; elle intervient dans le signal veille-sommeil et doit être utilisée avec logique.</p>
+          <p>Notre choix numéro 1 est <strong>Mush N Go Gummies Sommeil +</strong>. Le produit coche l’intention principale : format gummies, promesse sommeil claire, mélatonine, Reishi, valériane et ashwagandha. C’est le meilleur fit pour quelqu’un qui cherche un gummy mélatonine plutôt qu’une simple formule anti-stress ou une gélule sommeil classique.</p>
+          <p>La règle éditoriale est simple : si vous cherchez un produit à la mélatonine, il faut privilégier la cohérence de formule, le bon moment de prise et la prudence sur les cumuls. Si vous voulez éviter la mélatonine, la page dédiée <a href="/gummies-sommeil-sans-melatonine/">gummies sommeil sans mélatonine</a> est plus adaptée. Si vous voulez comparer tout le marché, revenez au <a href="/">comparatif principal gummy sommeil</a>.</p>
+        </section>
+
+        <TableOfContents items={tocItems} />
+
+        <section id="choix" class="comparatif-cards">
+          {melatoninOptions.map((product) => (
+            <div id={`product-${product.slug}`}><ComparatorCard product={product} /></div>
+          ))}
+        </section>
+
+        <section class="rich-text seo-guide">
+          <h2>Pourquoi Mush N Go est notre meilleur choix</h2>
+          <p>Mush N Go gagne cette page parce que le produit ne force pas l’angle. On parle bien d’un gummy sommeil, avec une formule orientée coucher et une marque déjà cohérente avec l’univers des champignons fonctionnels. Le Reishi apporte l’axe relaxation, la valériane parle à l’endormissement, l’ashwagandha renforce l’angle stress et la mélatonine donne un signal plus direct sur le rythme du sommeil.</p>
+          <p>Ce mélange est plus crédible qu’un simple gummy marketing qui affiche “sleep” sur le packaging sans vraie logique. Il reste évidemment nécessaire de respecter la posologie, mais sur une intention SEO “gummies mélatonine”, c’est le produit le plus simple à recommander : il correspond au format, au besoin et au potentiel de conversion de l’EMD.</p>
+          <p>Pauser RESTORE by Night arrive deuxième sur cette page, mais avec une nuance importante : ce n’est pas un gummy. Il peut être plus sérieux pour certains lecteurs qui veulent une formule sommeil en gélules, mais il répond moins bien à la requête exacte. C’est donc une alternative utile, pas le produit principal de la page.</p>
+        </section>
+
+        <ContentImage src="/images/content/gummy-sommeil-routine-soir.webp" alt="Routine du soir avec gummies mélatonine" caption="La mélatonine fonctionne mieux quand elle s’intègre à un vrai rituel du soir : lumière basse, horaires réguliers et coupure progressive des écrans." />
+
+        <section id="melatonine" class="rich-text seo-guide">
+          <h2>À quoi sert la mélatonine dans un gummy sommeil ?</h2>
+          <p>La mélatonine est souvent présentée comme “l’hormone du sommeil”. En pratique, il vaut mieux la comprendre comme un signal biologique lié au rythme veille-sommeil. Elle n’est pas faite pour assommer, mais pour indiquer au corps que la nuit arrive. C’est une nuance importante, parce qu’un gummy mélatonine n’a pas la même logique qu’un produit anti-stress ou qu’une tisane relaxante.</p>
+          <p>Cette distinction explique pourquoi elle peut être pertinente lorsque le problème est l’endormissement, le rythme décalé, les horaires irréguliers ou la difficulté à envoyer un signal clair au corps. En revanche, si le problème vient surtout du stress chronique, de ruminations, d’un mauvais environnement de sommeil ou d’une anxiété forte, la mélatonine seule peut décevoir. Elle peut aider le timing, mais elle ne règle pas toujours la cause.</p>
+          <p>Dans un gummy, l’intérêt est surtout la simplicité d’usage. Le format à mâcher rend la routine plus facile et plus agréable. Mais ce confort peut aussi banaliser la prise. C’est pour cela qu’un bon contenu doit rappeler les limites : respecter les doses, éviter le cumul, ne pas prendre le produit au hasard et consulter si les troubles persistent.</p>
+        </section>
+
+        <section id="dosage" class="rich-text seo-guide">
+          <h2>Dosage et timing : comment prendre des gummies mélatonine ?</h2>
+          <p>La règle la plus prudente est de suivre la posologie indiquée par la marque. Les gummies peuvent varier selon la quantité de mélatonine, les plantes associées, la présence d’ashwagandha, de valériane, de Reishi ou d’autres actifs relaxants. Il ne faut donc pas raisonner uniquement en nombre de gummies, mais en dose totale et en formule complète.</p>
+          <p>Le timing le plus courant se situe environ 30 à 60 minutes avant le coucher. L’idée n’est pas d’attendre d’être déjà au lit avec le téléphone en main, mais d’inscrire la prise dans une transition : baisse de lumière, ralentissement, arrêt des notifications, préparation du lendemain, douche tiède ou respiration calme. Le complément devient alors un signal parmi d’autres, pas une béquille isolée.</p>
+          <p>Il faut aussi éviter le piège du “plus = mieux”. Prendre davantage de gummies ne rend pas forcément la nuit meilleure et augmente le risque d’effets indésirables ou de somnolence au mauvais moment. Pour un EMD d’affiliation, ce message est important : la crédibilité de la page vient du fait qu’on pousse un produit, mais sans encourager une utilisation irréfléchie.</p>
+          <InnerNote emoji="📌" text="Le bon usage : une formule à la fois, dose respectée, prise le soir, pas de cumul avec d’autres produits contenant de la mélatonine." />
+        </section>
+
+        <ComparisonTable title="Gummies mélatonine : quel choix selon votre besoin ?" headers={[{label:'Besoin'}, {label:'Produit ou approche'}]} rows={[
+          { cells: ['<span class="table-fit">Meilleur fit gummy mélatonine</span><span class="table-muted"> Format gummies + mélatonine + Reishi + valériane</span>', productLink(mush, '✅ Mush N Go')], highlight: true },
+          { cells: ['<span class="table-fit">Formule sommeil plus classique</span><span class="table-muted"> Vous acceptez les gélules plutôt que les gummies</span>', productLink(pauser, '✅ Pauser RESTORE') ] },
+          { cells: ['<span class="table-fit">Stress du soir sans chercher la mélatonine</span><span class="table-muted"> Mental actif, tension, besoin de redescendre</span>', productLink(apaise, '✅ Apaise') ] },
+          { cells: ['<span class="table-fit">Univers champignons premium</span><span class="table-muted"> Marque forte, angle relaxation et routine</span>', productLink(spacegoods, '✅ Spacegoods') ] },
+        ]} />
+
+        <ContentImage src="/images/content/gummy-sommeil-chambre.webp" alt="Chambre calme et routine avec gummies mélatonine" caption="Un gummy mélatonine ne compense pas une mauvaise hygiène de sommeil. Il amplifie surtout une routine déjà cohérente." />
+
+        <section id="comparaison" class="rich-text seo-guide">
+          <h2>Gummy mélatonine vs gummy sans mélatonine</h2>
+          <p>Le choix dépend d’abord du problème réel. Si vous avez surtout du mal à vous endormir à cause d’un rythme décalé, d’une soirée trop lumineuse ou d’un signal de sommeil faible, un gummy mélatonine comme Mush N Go peut être le choix le plus logique. Il apporte une réponse plus directe à l’endormissement qu’un produit uniquement détente.</p>
+          <p>Si votre problème vient plutôt du stress, de la tension nerveuse ou d’un mental qui tourne, une formule sans mélatonine peut être plus cohérente. Dans ce cas, Apaise ou Sporelife peuvent mieux correspondre à l’intention : on ne cherche pas forcément à déclencher le sommeil, mais à rendre la soirée plus calme. C’est une nuance utile pour éviter de conseiller la mélatonine à tout le monde.</p>
+          <p>La meilleure stratégie éditoriale consiste donc à garder les deux pages. La page “gummies mélatonine” capte l’intention directe, plus proche de l’achat. La page “sans mélatonine” capte les lecteurs prudents ou orientés plantes. La homepage rassemble ensuite le comparatif global et garde Mush N Go en choix principal.</p>
+        </section>
+
+        <section id="precautions" class="rich-text seo-guide">
+          <h2>Précautions importantes avant d’acheter</h2>
+          <p>La mélatonine ne doit pas être banalisée parce qu’elle est vendue en gummy. Certaines personnes doivent demander un avis professionnel avant d’en prendre : femmes enceintes ou allaitantes, enfants, personnes sous traitement, personnes avec troubles neurologiques, psychiatriques, hormonaux ou maladies chroniques. Un complément sommeil n’est pas une solution universelle.</p>
+          <p>Il faut aussi surveiller la somnolence, le moment de prise et les interactions possibles avec d’autres produits relaxants. Le cumul est le vrai risque de beaucoup de routines sommeil : un gummy avec mélatonine, une gélule sommeil, une tisane forte, du magnésium, parfois de l’alcool ou des antihistaminiques. Même si chaque produit semble léger, l’ensemble peut devenir incohérent.</p>
+          <p>Enfin, si le besoin devient quotidien, il faut s’arrêter sur la cause. Un mauvais sommeil persistant peut être lié au stress chronique, à l’anxiété, à l’apnée du sommeil, à des horaires instables, à la caféine, à l’alcool, à la lumière ou à une pathologie. Dans ce cas, chercher le meilleur gummy ne suffit pas.</p>
+          <InnerNote emoji="⚠️" text="La mélatonine est utile quand elle est bien utilisée. Mauvais réflexe : multiplier les produits sommeil ou augmenter les doses parce que la première nuit n’est pas parfaite." />
+        </section>
+
+        <section id="alternatives" class="rich-text seo-guide">
+          <h2>Les alternatives si la mélatonine ne vous convient pas</h2>
+          <p>Si vous ne voulez pas de mélatonine, le meilleur réflexe est de basculer vers une logique détente. Apaise est intéressant lorsque le sommeil est perturbé par le stress ou la tension émotionnelle. Sporelife peut convenir à ceux qui veulent un gummy plus lifestyle, autour des champignons fonctionnels et du bien-être global. Ces produits ne remplacent pas un gummy mélatonine, mais ils répondent à une autre cause possible.</p>
+          <p>Si vous voulez rester sur une formule sommeil sérieuse mais que le format gummy n’est pas indispensable, Pauser devient pertinent. Son intérêt est de sortir du format bonbon pour revenir à une approche plus cadrée. Ce n’est pas forcément ce que cherche l’utilisateur qui tape “gummies mélatonine”, mais c’est une bonne alternative pour les lecteurs qui privilégient la formulation.</p>
+          <p>La bonne décision n’est donc pas de choisir l’actif le plus connu, mais l’outil adapté au problème. Endormissement et rythme : mélatonine. Stress et rumination : plantes, détente, routine. Sommeil persistant dégradé : avis professionnel. Cette clarté évite de transformer l’EMD en simple page de vente.</p>
+        </section>
+
+        <section id="verdict" class="rich-text seo-guide">
+          <h2>Verdict : notre recommandation gummies mélatonine</h2>
+          <p><strong>Mush N Go Gummies Sommeil + est notre recommandation numéro 1</strong> pour les lecteurs qui cherchent des gummies mélatonine. Le produit est le plus aligné avec l’intention : format gummies, promesse sommeil, formule avec mélatonine et actifs relaxants cohérents.</p>
+          <p><strong>Pauser RESTORE by Night</strong> reste une alternative sérieuse, mais hors format gummy. <strong>Apaise</strong> et <strong>Sporelife</strong> sont plus adaptés si vous voulez éviter la mélatonine ou si votre problème principal est le stress du soir. Le rôle de cette page est justement de clarifier cette frontière.</p>
+          <p>Si vous voulez un choix rapide : Mush N Go pour gummies mélatonine, Apaise pour stress sans mélatonine, Pauser pour formule sommeil en gélules. Et dans tous les cas, pas de cumul inutile : une routine simple, un produit cohérent et une vraie attention à la cause du mauvais sommeil.</p>
+        </section>
+
+        <section id="faq" class="faq-section"><FAQSection faq={faq} title="Questions fréquentes" /></section>
+      </div>
+      <aside class="sidebar-column"><div class="sidebar-sticky"><SidebarCTA logoSrc={mush.brandLogo}
+              productName={mush.name}
+              brandName={mush.brand} promoCode={mush.promoCode} promoPercent={mush.promoPercent} originalPrice={mush.originalPrice} discountPrice={mush.discountPrice} ctaLink={mush.affiliateLink} heroImage={mush.image} rating={mush.rating} reviewCount={mush.reviewCount} /></div></aside>
+    </div></div></div>
+  </main>
+</BaseLayout>
+
+<style>
+  .seo-guide { margin-top: 3rem; padding-top: 2rem; border-top: 2px solid #f0ebe3; }
+  .seo-guide .rich-text h3, .seo-guide h3 { margin-top: 2rem; margin-bottom: .75rem; font-size: 1.25rem; font-weight: 600; color: #242424; }
+  .seo-guide p { margin-bottom: 1rem; line-height: 1.8; color: #444; }
+  .faq-section { margin-top: 3rem; padding-top: 2rem; border-top: 2px solid #f0ebe3; }
+</style>
