@@ -93,6 +93,21 @@ const faq = config.faq;
           <p><strong>Mush N Go Gummies Sommeil +</strong> prend la première place, car c’est le produit le plus aligné avec la recherche : un format gummies, une promesse sommeil directe et une formule cohérente avec Reishi, valériane, mélatonine et ashwagandha. <strong>Sporelife</strong> passe deuxième comme meilleure alternative gummies champignons.</p>
           <p><strong>Apaise</strong> complète le podium grâce à ses gummies anti-stress, très utiles lorsque la difficulté d’endormissement vient d’un mental trop actif. Ensuite, <strong>Spacegoods</strong> apporte une marque forte avec Moon Chews et Astro Dust, et <strong>Pauser</strong> reste une alternative sommeil sérieuse hors format gummy.</p>
         </section>
+            <section id="methodologie-classement" class="methodology-box">
+              <h2>Comment nous avons classé les produits</h2>
+              <p>Notre classement combine des critères éditoriaux et pratiques pour aider à choisir une formule adaptée, sans se limiter au prix ou au niveau de réduction.</p>
+              <ul>
+                  <li>Formulation et dosage des actifs</li>
+                  <li>Prix réel après réduction et coût par usage</li>
+                  <li>Disponibilité et facilité de commande</li>
+                  <li>Avis clients et signaux de confiance publics</li>
+                  <li>Transparence de la marque sur la composition</li>
+                  <li>Code promo, conditions et clarté de l’offre</li>
+                  <li>Adéquation au besoin principal de la page</li>
+              </ul>
+              <p class="methodology-box__disclaimer"><strong>Transparence affiliation.</strong> Certains liens sont affiliés : LMC peut recevoir une commission si vous achetez via ces liens, sans coût supplémentaire pour vous. Cela ne supprime pas notre tri éditorial : un produit reste recommandé seulement s’il est cohérent avec l’usage recherché.</p>
+            </section>
+
 
         <TableOfContents items={config.tocItems} />
 
@@ -172,4 +187,14 @@ const faq = config.faq;
   .seo-guide .rich-text h3, .seo-guide h3 { margin-top: 2rem; margin-bottom: .75rem; font-size: 1.25rem; font-weight: 600; color: #242424; }
   .seo-guide p { margin-bottom: 1rem; line-height: 1.8; color: #444; }
   .faq-section { margin-top: 3rem; padding-top: 2rem; border-top: 2px solid #f0ebe3; }
+
+.methodology-box { margin: 2rem 0; padding: 1.35rem; border: 1px solid #eadfce; border-radius: 18px; background: #f8f4ec; color: #2f2922; }
+.methodology-box, .methodology-box h2, .methodology-box p, .methodology-box li, .methodology-box strong { color: #2f2922; }
+.methodology-box h2 { margin: 0 0 .75rem; font-size: clamp(1.35rem, 2vw, 1.8rem); line-height: 1.15; }
+.methodology-box p { margin: 0 0 .9rem; line-height: 1.65; }
+.methodology-box ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .45rem 1rem; margin: .8rem 0 1rem; padding-left: 1.1rem; }
+.methodology-box li { line-height: 1.45; }
+.methodology-box__disclaimer { margin-top: .85rem !important; padding-top: .85rem; border-top: 1px solid #eadfce; font-size: .92rem; }
+@media (max-width: 768px) { .methodology-box ul { grid-template-columns: 1fr; } .methodology-box { padding: 1rem; } }
+
 </style>
