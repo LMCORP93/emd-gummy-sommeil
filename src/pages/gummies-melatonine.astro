@@ -7,6 +7,7 @@ import SidebarCTA from '@/components/SidebarCTA.astro';
 import FAQSection from '@/components/FAQSection.astro';
 import ComparisonTable from '@/components/ComparisonTable.astro';
 import ContentImage from '@/components/ContentImage.astro';
+import InBriefBlock from '@/components/InBriefBlock.astro';
 import InnerNote from '@/components/InnerNote.astro';
 import config from '@/data/site.config';
 
@@ -47,6 +48,8 @@ const melatoninOptions = [
   },
 ];
 const productLink = (product: typeof mush, label = product.brand) => `<a class="table-link" href="${product.affiliateLink}" target="_blank" rel="nofollow sponsored">${label}</a>`;
+
+const inBrief = { title: 'Gummies mélatonine : le verdict court', paragraphs: ['Les gummies à la mélatonine peuvent aider quand le problème principal est l’endormissement ou le rythme de sommeil. Le risque est de banaliser la prise parce que le format ressemble à un bonbon.', 'Mush N Go est notre recommandation commerciale principale, à condition de respecter la posologie et de ne pas cumuler plusieurs produits sommeil sans réfléchir.'], assets: ['Format facile à prendre et bon fit avec le rituel du soir', 'Mush N Go est la recommandation principale du comparatif', 'Positionnement clair sur sommeil, détente et usage quotidien', 'Approche plus concrète que les promesses sommeil génériques'], considerations: ['À éviter en cumul avec d’autres produits sommeil sans avis adapté', 'L’efficacité dépend aussi du rythme, des écrans, du stress et de la régularité'] };
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
@@ -76,6 +79,7 @@ const productLink = (product: typeof mush, label = product.brand) => `<a class="
   <main style="background-color:#ffffff;">
     <div class="container-large padding-global"><div class="padding-section-medium"><div class="blog-grid">
       <div class="content-column">
+        <InBriefBlock title={inBrief.title} paragraphs={inBrief.paragraphs} assets={inBrief.assets} considerations={inBrief.considerations} product={mush} />
         <section id="resume" class="rich-text">
           <h2>Résumé : les gummies mélatonine ne se choisissent pas comme un bonbon</h2>
           <p>Les <strong>gummies mélatonine</strong> attirent parce qu’ils promettent une solution simple : un format agréable, une prise facile et un actif connu pour l’endormissement. C’est précisément pour cela qu’il faut les traiter avec un peu plus de sérieux qu’un gummy détente classique. La mélatonine n’est pas juste un ingrédient tendance ; elle intervient dans le signal veille-sommeil et doit être utilisée avec logique.</p>

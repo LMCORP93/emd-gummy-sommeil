@@ -7,6 +7,7 @@ import SidebarCTA from '@/components/SidebarCTA.astro';
 import FAQSection from '@/components/FAQSection.astro';
 import ComparisonTable from '@/components/ComparisonTable.astro';
 import ContentImage from '@/components/ContentImage.astro';
+import InBriefBlock from '@/components/InBriefBlock.astro';
 import InnerNote from '@/components/InnerNote.astro';
 import config from '@/data/site.config';
 
@@ -52,6 +53,8 @@ const avisProducts = [
   },
 ];
 const productLink = (product: typeof mush, label = product.brand) => `<a class="table-link" href="${product.affiliateLink}" target="_blank" rel="nofollow sponsored">${label}</a>`;
+
+const inBrief = { title: 'Gummy sommeil avis : notre verdict rapide', paragraphs: ['Les gummies sommeil sont intéressants si on les traite comme une aide de routine, pas comme une solution miracle. La formule, le dosage, le sucre et le timing comptent plus que le format bonbon.', 'Mush N Go reste notre choix principal sur cette niche grâce à une promesse claire, une formule cohérente et un bon fit avec l’intention gummy sommeil.'], assets: ['Format facile à prendre et bon fit avec le rituel du soir', 'Mush N Go est la recommandation principale du comparatif', 'Positionnement clair sur sommeil, détente et usage quotidien', 'Approche plus concrète que les promesses sommeil génériques'], considerations: ['À éviter en cumul avec d’autres produits sommeil sans avis adapté', 'L’efficacité dépend aussi du rythme, des écrans, du stress et de la régularité'] };
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
@@ -81,6 +84,7 @@ const productLink = (product: typeof mush, label = product.brand) => `<a class="
   <main style="background-color:#ffffff;">
     <div class="container-large padding-global"><div class="padding-section-medium"><div class="blog-grid">
       <div class="content-column">
+        <InBriefBlock title={inBrief.title} paragraphs={inBrief.paragraphs} assets={inBrief.assets} considerations={inBrief.considerations} product={mush} />
         <section id="resume" class="rich-text">
           <h2>Notre avis rapide sur les gummies sommeil</h2>
           <p>Notre avis sur les <strong>gummies sommeil</strong> est nuancé mais globalement positif : le format peut vraiment aider à installer une routine du soir, à condition de ne pas le vendre comme une solution magique. Le point fort du gummy est sa simplicité. Il se prend facilement, il est plus agréable qu’une gélule et il peut devenir un signal psychologique de transition vers le coucher.</p>

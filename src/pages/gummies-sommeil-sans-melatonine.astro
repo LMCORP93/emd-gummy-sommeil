@@ -7,6 +7,7 @@ import SidebarCTA from '@/components/SidebarCTA.astro';
 import FAQSection from '@/components/FAQSection.astro';
 import ComparisonTable from '@/components/ComparisonTable.astro';
 import ContentImage from '@/components/ContentImage.astro';
+import InBriefBlock from '@/components/InBriefBlock.astro';
 import InnerNote from '@/components/InnerNote.astro';
 import config from '@/data/site.config';
 
@@ -47,6 +48,8 @@ const noMelatoninOptions = [
   },
 ];
 const productLink = (product: typeof pageProduct, label = product.brand) => `<a class="table-link" href="${product.affiliateLink}" target="_blank" rel="nofollow sponsored">${label}</a>`;
+
+const inBrief = { title: 'Gummies sommeil sans mélatonine : en bref', paragraphs: ['Sans mélatonine, l’intérêt est surtout le stress du soir, la détente et le rituel de coucher. C’est plus doux, mais parfois moins direct sur l’endormissement.', 'Mush N Go reste la référence globale du comparatif, mais une formule sans mélatonine peut être plus adaptée si vous voulez éviter cette molécule ou limiter les cumuls.'], assets: ['Format facile à prendre et bon fit avec le rituel du soir', 'Mush N Go est la recommandation principale du comparatif', 'Positionnement clair sur sommeil, détente et usage quotidien', 'Approche plus concrète que les promesses sommeil génériques'], considerations: ['À éviter en cumul avec d’autres produits sommeil sans avis adapté', 'L’efficacité dépend aussi du rythme, des écrans, du stress et de la régularité'] };
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
@@ -76,6 +79,7 @@ const productLink = (product: typeof pageProduct, label = product.brand) => `<a 
   <main style="background-color:#ffffff;">
     <div class="container-large padding-global"><div class="padding-section-medium"><div class="blog-grid">
       <div class="content-column">
+        <InBriefBlock title={inBrief.title} paragraphs={inBrief.paragraphs} assets={inBrief.assets} considerations={inBrief.considerations} product={mush} />
         <section id="resume" class="rich-text">
           <h2>Résumé : faut-il vraiment éviter la mélatonine ?</h2>
           <p>Les <strong>gummies sommeil sans mélatonine</strong> répondent à une intention très différente des gummies sommeil classiques. La mélatonine est souvent recherchée pour envoyer un signal d’endormissement. Sans elle, le produit doit plutôt aider à calmer le terrain : tension mentale, stress de fin de journée, nervosité, difficulté à décrocher des écrans ou besoin d’un rituel plus doux avant le coucher.</p>
