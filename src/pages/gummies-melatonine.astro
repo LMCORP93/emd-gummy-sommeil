@@ -10,6 +10,7 @@ import ContentImage from '@/components/ContentImage.astro';
 import InBriefBlock from '@/components/InBriefBlock.astro';
 import InnerNote from '@/components/InnerNote.astro';
 import config from '@/data/site.config';
+import AuthorBioCard from '@/components/AuthorBioCard.astro';
 
 const mush = config.products.find((item) => item.brand === 'Mush N Go') ?? config.products[0];
 const pauser = config.products.find((item) => item.brand === 'Pauser') ?? config.products[4];
@@ -156,6 +157,8 @@ const inBrief = { title: 'Gummies mélatonine : le verdict court', paragraphs: [
           <p><strong>Pauser RESTORE by Night</strong> reste une alternative sérieuse, mais hors format gummy. <strong>Apaise</strong> et <strong>Sporelife</strong> sont plus adaptés si vous voulez éviter la mélatonine ou si votre problème principal est le stress du soir. Le rôle de cette page est justement de clarifier cette frontière.</p>
           <p>Si vous voulez un choix rapide : Mush N Go pour gummies mélatonine, Apaise pour stress sans mélatonine, Pauser pour formule sommeil en gélules. Et dans tous les cas, pas de cumul inutile : une routine simple, un produit cohérent et une vraie attention à la cause du mauvais sommeil.</p>
         </section>
+
+        <AuthorBioCard />
 
         <section id="faq" class="faq-section"><FAQSection faq={faq} title="Questions fréquentes" /></section>
       </div>

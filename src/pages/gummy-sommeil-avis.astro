@@ -10,6 +10,7 @@ import ContentImage from '@/components/ContentImage.astro';
 import InBriefBlock from '@/components/InBriefBlock.astro';
 import InnerNote from '@/components/InnerNote.astro';
 import config from '@/data/site.config';
+import AuthorBioCard from '@/components/AuthorBioCard.astro';
 
 const mush = config.products.find((item) => item.brand === 'Mush N Go') ?? config.products[0];
 const sporelife = config.products.find((item) => item.brand === 'Sporelife') ?? config.products[1];
@@ -156,6 +157,8 @@ const inBrief = { title: 'Gummy sommeil avis : notre verdict rapide', paragraphs
           <p>Sporelife et Apaise ne sont pas à jeter, au contraire. Ils permettent de répondre à deux profils utiles : l’utilisateur qui veut une alternative gummies champignons, et celui dont le sommeil est surtout perturbé par le stress. Mais pour l’intention exacte “gummy sommeil avis”, ils restent derrière Mush N Go.</p>
           <p>La bonne recommandation est donc simple : Mush N Go si vous voulez tester le meilleur gummy sommeil, Apaise si votre problème principal est le stress, Sporelife si vous voulez une routine gummies champignons plus globale, Pauser si vous voulez une formule sommeil en gélules. Ce découpage rend le choix plus utile qu’une simple page de vente.</p>
         </section>
+
+        <AuthorBioCard />
 
         <section id="faq" class="faq-section"><FAQSection faq={faq} title="Questions fréquentes" /></section>
       </div>

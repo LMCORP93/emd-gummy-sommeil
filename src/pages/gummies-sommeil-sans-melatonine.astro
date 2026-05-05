@@ -10,6 +10,7 @@ import ContentImage from '@/components/ContentImage.astro';
 import InBriefBlock from '@/components/InBriefBlock.astro';
 import InnerNote from '@/components/InnerNote.astro';
 import config from '@/data/site.config';
+import AuthorBioCard from '@/components/AuthorBioCard.astro';
 
 const pageProduct = config.products.find((item) => item.brand === 'Apaise') ?? config.products[2];
 const sporelife = config.products.find((item) => item.brand === 'Sporelife') ?? config.products[1];
@@ -159,6 +160,8 @@ const inBrief = { title: 'Gummies sommeil sans mélatonine : en bref', paragraph
           <p><strong>Sporelife</strong> arrive ensuite comme alternative gummies champignons, plus lifestyle et bien-être global. C’est intéressant si vous aimez l’univers champignons fonctionnels et que vous ne cherchez pas une promesse d’endormissement trop frontale. Pour l’intention pure “meilleur gummy sommeil”, <strong>Mush N Go</strong> reste devant, mais il appartient à la catégorie avec mélatonine.</p>
           <p>Le choix final dépend donc de votre priorité. Si vous voulez éviter la mélatonine, partez sur une approche détente et routine. Si vous voulez le produit le plus orienté sommeil, acceptez que la mélatonine soit souvent présente. Et si vos troubles persistent, ne laissez pas un comparatif d’affiliation remplacer un avis professionnel.</p>
         </section>
+
+        <AuthorBioCard />
 
         <section id="faq" class="faq-section"><FAQSection faq={faq} title="Questions fréquentes" /></section>
       </div>

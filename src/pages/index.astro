@@ -9,6 +9,7 @@ import ComparisonTable from '@/components/ComparisonTable.astro';
 import ContentImage from '@/components/ContentImage.astro';
 import InnerNote from '@/components/InnerNote.astro';
 import config from '@/data/site.config';
+import AuthorBioCard from '@/components/AuthorBioCard.astro';
 
 const topProduct = config.products[0];
 const pageTitle = 'Meilleur gummy sommeil 2026 : comparatif Top 5';
@@ -178,6 +179,8 @@ const faq = config.faq;
           <p><strong>Sporelife</strong> est la meilleure alternative gummies champignons après Mush N Go. <strong>Apaise</strong> est très utile si le stress est le problème principal. <strong>Neuro Gum</strong> élargit le choix avec des pastilles fondantes orientées sommeil. <strong>Pauser</strong> reste le choix sommeil sérieux si le format gummy n’est pas indispensable.</p>
           <p>Le choix intelligent est donc simple : Mush N Go si vous voulez le meilleur fit gummy sommeil, Sporelife si vous voulez une alternative gummies champignons, Apaise si le stress est le problème principal, Pauser si vous privilégiez une formule sommeil en gélules.</p>
         </section>
+
+        <AuthorBioCard />
 
         <section id="faq" class="faq-section"><FAQSection faq={faq} title="Questions fréquentes" /></section>
       </div>
