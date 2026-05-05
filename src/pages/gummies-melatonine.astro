@@ -13,7 +13,7 @@ import config from '@/data/site.config';
 
 const mush = config.products.find((item) => item.brand === 'Mush N Go') ?? config.products[0];
 const pauser = config.products.find((item) => item.brand === 'Pauser') ?? config.products[4];
-const spacegoods = config.products.find((item) => item.brand === 'Spacegoods') ?? config.products[3];
+const neuro = config.products.find((item) => item.brand === 'Neuro Gum') ?? config.products[3];
 const apaise = config.products.find((item) => item.brand === 'Apaise') ?? config.products[2];
 const pageTitle = 'Gummies mélatonine : avis, dosage et meilleur choix 2026';
 const pageDescription = 'Guide gummies mélatonine : quand les prendre, dosage, précautions, alternatives et meilleur choix avec Mush N Go Gummies Sommeil +.';
@@ -49,7 +49,7 @@ const melatoninOptions = [
 ];
 const productLink = (product: typeof mush, label = product.brand) => `<a class="table-link" href="${product.affiliateLink}" target="_blank" rel="nofollow sponsored">${label}</a>`;
 
-const inBrief = { title: 'Gummies mélatonine : le verdict court', paragraphs: ['Les gummies à la mélatonine peuvent aider quand le problème principal est l’endormissement ou le rythme de sommeil. Le risque est de banaliser la prise parce que le format ressemble à un bonbon.', 'Mush N Go est notre recommandation commerciale principale, à condition de respecter la posologie et de ne pas cumuler plusieurs produits sommeil sans réfléchir.'], assets: ['Format facile à prendre et bon fit avec le rituel du soir', 'Mush N Go est la recommandation principale du comparatif', 'Positionnement clair sur sommeil, détente et usage quotidien', 'Approche plus concrète que les promesses sommeil génériques'], considerations: ['À éviter en cumul avec d’autres produits sommeil sans avis adapté', 'L’efficacité dépend aussi du rythme, des écrans, du stress et de la régularité'] };
+const inBrief = { title: 'Gummies mélatonine : le verdict court', paragraphs: ['Les gummies à la mélatonine peuvent aider quand le problème principal est l’endormissement ou le rythme de sommeil. Le risque est de banaliser la prise parce que le format ressemble à un bonbon.', 'Mush N Go est notre recommandation principale, à condition de respecter la posologie et de ne pas cumuler plusieurs produits sommeil sans réfléchir.'], assets: ['Format facile à prendre et bon fit avec le rituel du soir', 'Mush N Go est la recommandation principale du comparatif', 'Positionnement clair sur sommeil, détente et usage quotidien', 'Approche plus concrète que les promesses sommeil génériques'], considerations: ['À éviter en cumul avec d’autres produits sommeil sans avis adapté', 'L’efficacité dépend aussi du rythme, des écrans, du stress et de la régularité'] };
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
@@ -123,7 +123,7 @@ const inBrief = { title: 'Gummies mélatonine : le verdict court', paragraphs: [
           { cells: ['<span class="table-fit">Meilleur fit gummy mélatonine</span><span class="table-muted"> Format gummies + mélatonine + Reishi + valériane</span>', productLink(mush, '✅ Mush N Go')], highlight: true },
           { cells: ['<span class="table-fit">Formule sommeil plus classique</span><span class="table-muted"> Vous acceptez les gélules plutôt que les gummies</span>', productLink(pauser, '✅ Pauser RESTORE') ] },
           { cells: ['<span class="table-fit">Stress du soir sans chercher la mélatonine</span><span class="table-muted"> Mental actif, tension, besoin de redescendre</span>', productLink(apaise, '✅ Apaise') ] },
-          { cells: ['<span class="table-fit">Univers champignons premium</span><span class="table-muted"> Marque forte, angle relaxation et routine</span>', productLink(spacegoods, '✅ Spacegoods') ] },
+          { cells: ['<span class="table-fit">Format fondant sommeil</span><span class="table-muted"> Mélatonine, L-théanine, magnésium</span>', productLink(neuro, '✅ Neuro Gum') ] },
         ]} />
 
         <ContentImage src="/images/content/gummy-sommeil-chambre.webp" alt="Chambre calme et routine avec gummies mélatonine" caption="Un gummy mélatonine ne compense pas une mauvaise hygiène de sommeil. Il amplifie surtout une routine déjà cohérente." />
@@ -132,7 +132,7 @@ const inBrief = { title: 'Gummies mélatonine : le verdict court', paragraphs: [
           <h2>Gummy mélatonine vs gummy sans mélatonine</h2>
           <p>Le choix dépend d’abord du problème réel. Si vous avez surtout du mal à vous endormir à cause d’un rythme décalé, d’une soirée trop lumineuse ou d’un signal de sommeil faible, un gummy mélatonine comme Mush N Go peut être le choix le plus logique. Il apporte une réponse plus directe à l’endormissement qu’un produit uniquement détente.</p>
           <p>Si votre problème vient plutôt du stress, de la tension nerveuse ou d’un mental qui tourne, une formule sans mélatonine peut être plus cohérente. Dans ce cas, Apaise ou Sporelife peuvent mieux correspondre à l’intention : on ne cherche pas forcément à déclencher le sommeil, mais à rendre la soirée plus calme. C’est une nuance utile pour éviter de conseiller la mélatonine à tout le monde.</p>
-          <p>La meilleure stratégie éditoriale consiste donc à garder les deux pages. La page “gummies mélatonine” capte l’intention directe, plus proche de l’achat. La page “sans mélatonine” capte les lecteurs prudents ou orientés plantes. La homepage rassemble ensuite le comparatif global et garde Mush N Go en choix principal.</p>
+          <p>La bonne façon de s’orienter consiste donc à séparer les deux besoins. La page “gummies mélatonine” aide surtout si l’endormissement ou le rythme est le sujet principal. La page “sans mélatonine” convient mieux aux lecteurs prudents ou orientés plantes. Le comparatif global permet ensuite de comparer les options sans mélanger les attentes.</p>
         </section>
 
         <section id="precautions" class="rich-text seo-guide">
