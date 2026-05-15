@@ -11,6 +11,7 @@ import InBriefBlock from '@/components/InBriefBlock.astro';
 import InnerNote from '@/components/InnerNote.astro';
 import config from '@/data/site.config';
 import AuthorBioCard from '@/components/AuthorBioCard.astro';
+import ArticleGrid from '@/components/ArticleGrid.astro';
 
 const mush = config.products.find((item) => item.brand === 'Mush N Go') ?? config.products[0];
 const pauser = config.products.find((item) => item.brand === 'Pauser') ?? config.products[4];
@@ -167,6 +168,7 @@ const inBrief = { title: 'Gummies mélatonine : le verdict court', paragraphs: [
               brandName={mush.brand} promoCode={mush.promoCode} promoPercent={mush.promoPercent} originalPrice={mush.originalPrice} discountPrice={mush.discountPrice} ctaLink={mush.affiliateLink} heroImage={mush.image} rating={mush.rating} reviewCount={mush.reviewCount} /></div></aside>
     </div></div></div>
   </main>
+  <ArticleGrid />
 </BaseLayout>
 
 <style>
