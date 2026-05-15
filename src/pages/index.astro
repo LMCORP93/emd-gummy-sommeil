@@ -95,7 +95,15 @@ const faq = config.faq;
           <p><strong>Apaise</strong> complète le podium grâce à ses gummies anti-stress, très utiles lorsque la difficulté d’endormissement vient d’un mental trop actif. Ensuite, <strong>Neuro Gum</strong> apporte une alternative en pastilles fondantes avec mélatonine, L-théanine et magnésium, et <strong>Pauser</strong> reste une alternative sommeil sérieuse hors format gummy.</p>
           <p>À retenir : tous les produits cités ne sont pas des gummies sommeil stricts. Les vrais gummies ou formats proches passent devant ; les poudres café/champignons et les produits énergie ont été écartés de la recommandation principale pour éviter un comparatif incohérent.</p>
         </section>
-            <section id="methodologie-classement" class="methodology-box">
+        <TableOfContents items={config.tocItems} />
+
+        <section id="ranking" class="comparatif-cards">
+          {config.products.map((product) => (
+            <div id={`product-${product.slug}`}><ComparatorCard product={product} /></div>
+          ))}
+        </section>
+
+        <section id="methodologie-classement" class="methodology-box">
               <h2>Comment nous avons classé les produits</h2>
               <p>Notre classement combine des critères éditoriaux et pratiques pour aider à choisir une formule adaptée, sans se limiter au prix ou au niveau de réduction.</p>
               <ul>
@@ -110,14 +118,6 @@ const faq = config.faq;
               <p class="methodology-box__disclaimer"><strong>Note éditoriale.</strong> Notre classement privilégie la cohérence de la formule, la clarté de l’offre et l’adéquation avec l’usage recherché, sans se limiter au prix ou aux promesses marketing.</p>
             </section>
 
-
-        <TableOfContents items={config.tocItems} />
-
-        <section id="ranking" class="comparatif-cards">
-          {config.products.map((product) => (
-            <div id={`product-${product.slug}`}><ComparatorCard product={product} /></div>
-          ))}
-        </section>
 
         <section id="methodologie" class="rich-text seo-guide">
           <h2>Notre méthode de classement</h2>
