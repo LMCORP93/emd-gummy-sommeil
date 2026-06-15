@@ -179,7 +179,7 @@ const config: SiteConfig = {
     { type: 'comparatif', label: 'Comparatif', slug: '/', image: '/images/content/gummy-sommeil-hero.webp' },
     { type: 'blog', label: 'Sans mélatonine', slug: '/gummies-sommeil-sans-melatonine/', image: '/images/content/gummy-sommeil-routine-soir.webp' },
     { type: 'blog', label: 'Mélatonine', slug: '/gummies-melatonine/', image: '/images/content/gummy-sommeil-ingredients.webp' },
-    { type: 'blog', label: 'Avis', slug: '/gummy-sommeil-avis/', image: '/images/content/gummy-sommeil-chambre.webp' },
+    { type: 'blog', label: 'Avis gummies sommeil', slug: '/gummy-sommeil-avis/', image: '/images/content/gummy-sommeil-chambre.webp' },
   ],
 };
 
