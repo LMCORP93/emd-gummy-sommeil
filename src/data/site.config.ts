@@ -170,7 +170,7 @@ const config: SiteConfig = {
     { id: 'methodologie', label: 'Méthode' },
     { id: 'choisir', label: 'Comment choisir' },
     { id: 'usages', label: 'Stress ou sommeil' },
-    { id: 'recherches', label: 'Recherches fréquentes' },
+    { id: 'recherches', label: 'Points clés à clarifier' },
     { id: 'prix', label: 'Prix et codes promo' },
     { id: 'verdict', label: 'Verdict' },
     { id: 'faq', label: 'FAQ' },
