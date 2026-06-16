@@ -143,8 +143,8 @@ const config: SiteConfig = {
   rating: products[0].rating,
   author: { name: 'Tim', avatar: '/author-avatar.png', bio: 'Auteur des Avis de Tim, spécialisé dans les comparatifs de compléments alimentaires.' },
   seo: {
-    title: 'Meilleurs gummies sommeil 2026 : comparatif Top 5',
-    description: 'Comparatif des meilleurs gummies sommeil et compléments relaxation : Mush N Go, Sporelife, Apaise, Neuro Gum et Pauser. Avis, prix et codes promo.',
+    title: 'Meilleurs gummies sommeil 2026 : Top 5 pour s’endormir efficacement',
+    description: 'On a sélectionné les 5 meilleurs gummies sommeil disponibles en France : mélatonine, plantes relaxantes, format et prix. Mush N Go en premier choix, avec codes promo.',
     ogImage: '/og-image.jpg',
   },
   analyticsMeasurementId: 'G-X5P3M1ZCTK',
@@ -156,7 +156,8 @@ const config: SiteConfig = {
   pros: ['Top 5 pensé pour une recherche gummy sommeil concrète', 'Mush N Go placé en recommandation principale', 'Sporelife positionné comme alternative gummy champignons'],
   cons: ['Le stock exact gummies sommeil est limité', 'Certains produits restent des alternatives proches plutôt que des gummies sommeil stricts'],
   faq: [
-    { question: 'Quel est le meilleur gummy sommeil ?', answer: 'Notre choix numéro 1 est Mush N Go Gummies Sommeil +, car c’est le produit le plus cohérent du comparatif : format gummies, promesse sommeil claire et formule avec Reishi, valériane, mélatonine et ashwagandha.' },
+    { question: 'Quel est le meilleur gummy sommeil ?', answer: 'Notre choix numéro 1 est Mush N Go Gummies Sommeil +, car c’est le produit le plus cohérent du comparatif : format gummies, promesse sommeil claire et formule avec Reishi, valériane, mélatonine et ashwagandha. Pour ceux qui cherchent spécifiquement un gummy pour s’endormir plus facilement, Mush N Go est également notre recommandation grâce à sa formule mélatonine, valériane et reishi.' },
+    { question: 'Quels sont les gummies sommeil les plus efficaces ?', answer: 'L’efficacité dépend de la formule et du profil. Pour un endormissement difficile, les produits avec mélatonine et plantes relaxantes comme la valériane ou la passiflore sont les plus ciblés. Pour les réveils nocturnes liés au stress, un format avec ashwagandha ou reishi peut être plus utile. Dans notre classement, Mush N Go couvre les deux angles avec une formule cohérente.' },
     { question: 'Les gummies sommeil fonctionnent-ils vraiment ?', answer: 'Ils peuvent aider lorsqu’ils combinent une routine régulière, un bon timing et des actifs cohérents comme mélatonine, passiflore, valériane, reishi ou ashwagandha. Ils ne remplacent pas un avis médical si les troubles du sommeil sont importants.' },
     { question: 'Faut-il choisir mélatonine ou plantes relaxantes ?', answer: 'La mélatonine vise surtout l’endormissement et le rythme veille-sommeil. Les plantes relaxantes sont plus utiles si le problème vient du stress, de la tension ou d’un mental trop actif le soir.' },
     { question: 'Pourquoi Mush N Go est numéro 1 ?', answer: 'Parce que c’est le produit le plus cohérent pour cette page : format gummies, angle sommeil direct, marque française et formule cohérente avec Reishi, valériane, mélatonine et ashwagandha.' },
